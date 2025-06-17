@@ -1,0 +1,13 @@
+# Cargo.toml
+[dependencies]
+crossterm = "0.27"
+
+[package]
+name = "speedtester"
+version = "0.1.0"   
+edition = "2021"
+
+
+[profile.dev]
+opt-level = 0
+debug = false
