@@ -18,7 +18,10 @@ in order to run it, just run
 # cargo is just package manager for rust
 cargo install morseytype
 morseytype
+#and begin to press spaces in specific duration.
 ```
+
+## remember that terminal needs to be at lease 26 cells height and 105 cells width
 
 ## Dependencies
 

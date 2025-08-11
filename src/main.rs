@@ -1,7 +1,7 @@
 use crossterm::{
     cursor::MoveTo,
     execute,
-    terminal::{self, Clear, ClearType, EnterAlternateScreen, LeaveAlternateScreen},
+    terminal::{self, Clear, ClearType, EnterAlternateScreen, LeaveAlternateScreen, size},
 };
 use device_query::{DeviceQuery, DeviceState, Keycode};
 use rand::seq::SliceRandom;
@@ -130,6 +130,17 @@ fn main() -> io::Result<()> {
     let word_count = args.get(1).and_then(|s| s.parse().ok()).unwrap_or(10);
     let threshold_ms = args.get(2).and_then(|s| s.parse().ok()).unwrap_or(150);
 
+    // Check terminal size
+    let (width, height) = size()?;
+    if width < 105 || height < 26 {
+        eprintln!(
+            "Terminal size too small! Required: 105x26, Current: {}x{}",
+            width, height
+        );
+        eprintln!("Please resize your terminal and try again.");
+        return Ok(());
+    }
+
     let mut words: Vec<String> = dict::WORDS.iter().map(|s| s.to_uppercase()).collect();
 
     let mut rng = thread_rng();
@@ -150,7 +161,7 @@ fn main() -> io::Result<()> {
     line += 1;
     execute!(stdout, MoveTo(0, line))?;
     println!("-------------------------------------------");
-    line += 1;
+    line += 2; // Extra space for stats later
     execute!(stdout, MoveTo(0, line))?;
     println!("Words to type: {}", word_count);
     line += 1;
