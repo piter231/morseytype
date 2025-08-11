@@ -15,6 +15,7 @@ MorseyType is a terminal-based Morse code typing trainer designed to help you im
 in order to run it, just run
 
 ```bash
+# cargo is just package manager for rust
 cargo install morseytype
 morseytype
 ```
