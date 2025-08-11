@@ -15,11 +15,9 @@ MorseyType is a terminal-based Morse code typing trainer designed to help you im
 in order to run it, just run
 
 ```bash
-chmod +x speedtester
-./speedtester
+cargo install morseytype
+morseytype
 ```
-
-in the directory with the thousand-most-common-words folder and its content.
 
 ## Dependencies
 
