@@ -8,11 +8,19 @@ serde = { version = "1.0", features = ["derive"] }
 clap = "4.5.40"
 
 [package]
-name = "speedtester"
-version = "0.1.0"   
-edition = "2021"
+name = "morseytype"
+version = "0.1.1"   
+edition = "2024"
+authors = ["piter231"]
+description = "MorseyType is a terminal-based Morse code typing trainer designed to help you improve your Morse code proficiency through structured practice sessions. The application presents words from english vocabulary lists, challenges you to type them in Morse code, and provides real-time performance feedback."
+readme = "readme.md"
+repository = "https://github.com/piter231/morseytype.git"
+license = "MIT"
+license-file = "LICENSE"
+keywords = ["morseytype", "morse"]
+
 
 
 [profile.dev]
-opt-level = 0
+opt-level = 3
 debug = false

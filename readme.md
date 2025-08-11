@@ -1,26 +1,26 @@
 # MorseyType - Morse Code Typing Trainer
 
-
-MorseyType is a terminal-based Morse code typing trainer designed to help you improve your Morse code proficiency through structured practice sessions. The application presents words from common language vocabulary lists, challenges you to type them in Morse code, and provides real-time performance feedback.
+MorseyType is a terminal-based Morse code typing trainer designed to help you improve your Morse code proficiency through structured practice sessions. The application presents words from english vocabulary lists, challenges you to type them in Morse code, and provides real-time performance feedback.
 
 ## Features
 
-- 🎯 Word-based Morse code training with customizable word lists
 - ⏱ Real-time performance tracking with WPM (Words Per Minute) calculation
-- 🌍 Support for multiple languages via included word lists
+- 🌍 Support for english language
 - 📊 Dynamic Morse code reference table for quick lookup
 - ⚙️ Adjustable threshold for dot/dash distinction
 - 📈 Real-time feedback on your Morse input and decoding
 
 ## Installation
 
-1. Clone the repository with submodules:
+1. Clone the repository:
+
 ```bash
-git clone --recurse-submodules https://github.com/piter231/morseytype.git
+git clone https://github.com/piter231/morseytype.git
 cd morseytype
 ```
 
 2. Build the application:
+
 ```bash
 cargo build --release
 ```
@@ -28,61 +28,47 @@ cargo build --release
 ## Usage
 
 ### Basic Command
+
 ```bash
-cargo run -- [LANGUAGE_CODE] [WORD_COUNT] [THRESHOLD_MS]
+cargo run -- [WORD_COUNT] [THRESHOLD_MS]
 ```
 
 ### Examples
+
 ```bash
-# English (default), 10 words, 150ms threshold
+# 10 words, 150ms threshold
 cargo run
 
-# Polish, 5 words, 200ms threshold
-cargo run -- pl 5 200
-
-# German, 15 words, 100ms threshold
-cargo run -- de 15 100
+# 5 words, 200ms threshold
+cargo run -- 5 200
 ```
 
 ### Parameters
-| Parameter      | Default | Description |
-|----------------|---------|-------------|
-| LANGUAGE_CODE  | `en`    | Language code (e.g., en, pl, de) |
-| WORD_COUNT     | `10`    | Number of words to practice |
-| THRESHOLD_MS   | `150`   | Duration threshold in milliseconds to distinguish dots (.) and dashes (-) |
+
+| Parameter    | Default | Description                                                               |
+| ------------ | ------- | ------------------------------------------------------------------------- |
+| WORD_COUNT   | `10`    | Number of words to practice                                               |
+| THRESHOLD_MS | `150`   | Duration threshold in milliseconds to distinguish dots (.) and dashes (-) |
 
 ### Key Bindings
-| Key          | Function |
-|--------------|----------|
+
+| Key          | Function                                                        |
+| ------------ | --------------------------------------------------------------- |
 | `Space`      | Press and release quickly for dot (.), hold longer for dash (-) |
-| `F`          | Insert letter separator (/) |
-| `J`          | Insert word separator (space) |
-| `;`          | Backspace (remove last character) |
-| `Q` or `Esc` | Exit program |
-
-## Supported Languages
-
-MorseyType supports all languages available in the [thousand-most-common-words](https://github.com/SMenigat/thousand-most-common-words) repository. The application will automatically detect and use the appropriate word list based on the language code you provide.
-
-| Language      | Code | Language      | Code |
-|---------------|------|---------------|------|
-| English       | `en` | French        | `fr` |
-| Polish        | `pl` | German        | `de` |
-| Spanish       | `es` | Italian       | `it` |
-| Russian       | `ru` | Japanese      | `jp` |
-| Chinese       | `zh` | ...and [more](https://github.com/SMenigat/thousand-most-common-words/tree/master/words) | |
+| `f`          | Insert letter separator (/)                                     |
+| `j`          | Insert word separator (space)                                   |
+| `;`          | Backspace (remove last character)                               |
+| `q` or `Esc` | Exit program                                                    |
 
 ## Word List Credits
 
-Special thanks to [SMenigat](https://github.com/SMenigat) for creating and maintaining the [thousand-most-common-words](https://github.com/SMenigat/thousand-most-common-words) repository, which provides the word lists used in this application. These lists are included as a submodule in this project.
+Special thanks to [SMenigat](https://github.com/SMenigat) for creating and maintaining the [thousand-most-common-words](https://github.com/SMenigat/thousand-most-common-words) repository, which provides the word lists used in this application. I converted the en.json from this repo into current dict.rs, in order to make it easy to use as one execuitable.
 
 ## Technical Notes
 
-1. **Font Requirements**: The application currently only supports Latin-based character sets. Non-Latin languages may not display correctly in the terminal.
+1. **Input Handling**: The application uses precise timing to distinguish between dots (.) and dashes (-). The default threshold is 150ms, but you can adjust this based on your typing speed and preference.
 
-2. **Input Handling**: The application uses precise timing to distinguish between dots (.) and dashes (-). The default threshold is 150ms, but you can adjust this based on your typing speed and preference.
-
-3. **Performance**: The real-time WPM calculation is based on completed words. The final average WPM is calculated based on the total time taken to complete all words.
+2. **Performance**: The real-time WPM calculation is based on completed words. The final average WPM is calculated based on the total time taken to complete all words.
 
 ## Development Journey
 
@@ -108,4 +94,3 @@ Contributions are welcome! If you'd like to improve MorseyType, please follow th
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
