@@ -10,6 +10,21 @@ MorseyType is a terminal-based Morse code typing trainer designed to help you im
 - ⚙️ Adjustable threshold for dot/dash distinction
 - 📈 Real-time feedback on your Morse input and decoding
 
+## Run
+
+in order to run it, just run
+
+```bash
+chmod +x speedtester
+./speedtester
+```
+
+in the directory with the thousand-most-common-words folder and its content.
+
+## Dependencies
+
+its dependency is x11, should be installed by default, otherwise just install libx11 using your os package manager.
+
 ## Installation
 
 1. Clone the repository:
@@ -72,6 +87,7 @@ Special thanks to [SMenigat](https://github.com/SMenigat) for creating and maint
 
 ## Development Journey
 
+The main inspiration to make this project was watching the experienced morse operator on the video, and how quickly he does his job.
 Developing MorseyType was a challenging but rewarding experience. One of the most difficult aspects was implementing the precise timing mechanism for distinguishing between dots and dashes. After several iterations of trial and error with different timing approaches, I finally succeeded in creating a reliable system that:
 
 1. Accurately measures key press duration
